@@ -1,0 +1,6 @@
+SITES:
+    MEITUAN:
+        food: ["http://sz.meituan.com/category/food/", "http://sz.meituan.com/category/food/all"]
+        play: ["http://sz.meituan.com/category/entertainment/all"]
+#    LASHOU:
+        
