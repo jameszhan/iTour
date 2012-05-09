@@ -9,7 +9,8 @@ class Meituan < GroupSite
         intro: deal_intro.at("h1").text,
         price: deal_intro.at(".deal-price > strong").text,
         image: deal_intro.at(".deal-buy-cover-img > img")[:src],
-        type: @type
+        type: @type,
+        provider: self.class.name
       }
     end
   end

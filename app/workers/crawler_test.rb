@@ -3,25 +3,50 @@ require 'yaml'
 require './group_site'
 require './meituan'
 
+class String
+  def constantize
+    names = self.split('::')
+    names.shift if names.empty? || names.first.empty?
 
-puts Anemone::Core::DEFAULT_OPTS
-#puts Anemone::Core.const_get('DEFAULT_OPTS')
+    constant = Object
+    names.each do |name|
+      constant = constant.const_defined?(name) ? constant.const_get(name) : constant.const_missing(name)
+    end
+    constant
+  end
+end
 
 
 
-#Ruby Skill
-urls = %w{
-  http://www.baidu.com
-  http://www.google.com
-  http://www.sina.com/
-  http://www.apple.com/hk
-  http://www.taobao.com/
-}
-links = [urls].flatten.map{ |url| url.is_a?(URI) ? url : URI(url) }
-links.each{ |url| url.path = '/' if url.path.empty? }
 
-p links
+SITES = YAML.load_file("sites.yaml")["SITES"]
+sitename = "meituan".upcase
+type = "play"
 
-SITES = YAML.load_file("sites.yaml")
-p SITES
-#Meituan.new("http://sz.meituan.com/category/food/", 'food').start
+site = SITES[sitename]
+if site
+  classname = sitename.capitalize
+  links = site[type]
+  if links
+    groupsite = classname.constantize.new(links, type)
+    groupsite.start
+  else
+    throw "Unsupport Site #{sitename} type: #{type}."        
+  end
+else
+  throw "Unsupport Site #{sitename}."
+end
+
+
+=begin
+SITES["SITES"].each do|site, links| 
+  classname = site.capitalize
+  links.each do|type, urls|
+    groupsite = constantize(classname).new(links[type], type)
+    groupsite.start
+  end
+end
+
+classname = "meituan".capitalize
+constantize(classname).new("http://sz.meituan.com/category/food/", 'food').start
+=end

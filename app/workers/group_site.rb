@@ -46,7 +46,8 @@ class GroupSite
   def handle(page)
     deal = parse page
     begin
-      Deal.new(deal).save! if deal   
+      puts deal
+#      Deal.new(deal).save! if deal   
     rescue Error => e
       puts e
     end
