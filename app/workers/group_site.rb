@@ -3,7 +3,7 @@
 class GroupSite
     
   OPTIONS = {
-    :threads => 8, 
+    :threads => 1, 
     :verbose => true, 
     :discard_page_bodies => false, 
     :user_agent => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:11.0) Gecko/20100101 Firefox/11.0", 
@@ -43,12 +43,13 @@ class GroupSite
   
   
   protected  
+  
   def handle(page)
     deal = parse page
     begin
-      puts deal
-#      Deal.new(deal).save! if deal   
-    rescue Error => e
+#      puts deal
+      Deal.new(deal).save! if deal   
+    rescue Exception => e
       puts e
     end
   end  

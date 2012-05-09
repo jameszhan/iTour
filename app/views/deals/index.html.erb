@@ -1,14 +1,17 @@
+<div class="apple_pagination"><%= will_paginate %></div>
+<div class="deals">
 <% @deals.each do |deal| %>
 	<div class="deal">
 		<div class="intro"><%= deal.intro %></div>
 		<div class="image">
-			<a href="<%= deal.url %>">
+			<%= link_to deal.url do%>
 				<img src="<%= deal.image %>" width="300" height="200" />
-			</a>
+			<% end %>
 		</div>
 		<div class="price"><%= deal.price %></div>
 	</div>
 <% end %>
+</div>
 
 <div class="footer">
 	<%= link_to 'New Deal', new_deal_path %>

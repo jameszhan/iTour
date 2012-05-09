@@ -1,8 +1,8 @@
 ITour::Application.routes.draw do
   resources :deals
   
-  
-  
+#  match "/tasks(/:site)(/:type)" => "task#index"
+  match "/tasks(/:site)(/:type)" => Task.action(:index)
   
   mount Resque::Server, :at => "/resque"
 

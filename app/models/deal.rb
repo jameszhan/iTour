@@ -1,3 +1,3 @@
 class Deal < ActiveRecord::Base
-  attr_accessible :intro, :price, :provider, :type, :url
+  attr_accessible :image, :intro, :price, :provider, :catalog, :url
 end

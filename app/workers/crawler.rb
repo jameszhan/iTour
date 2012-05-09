@@ -2,7 +2,7 @@
 class Crawler
   
   @queue = :crawler_queue  
-  SITES = YAML.load_file("sites.yaml")["SITES"]
+  SITES = YAML.load_file("#{Rails.root}/lib/sites.yaml")["SITES"]
 
   def self.perform(sitename, type) 
     site = SITES[sitename.upcase]
@@ -21,3 +21,4 @@ class Crawler
   end
   
 end
+

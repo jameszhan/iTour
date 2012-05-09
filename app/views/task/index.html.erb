@@ -1,0 +1,14 @@
+
+
+
+<% @sites.each do|site, links|%>
+	<ul><%= site %>
+		<% links.each do |type, urls| %>
+		<li><%= link_to type, "/tasks/#{site.downcase}/#{type}", remote: true %></li>
+		<%end%>				
+	</ul>
+<% end %>
+
+<div>
+	<%#= link_to 'View Task', resque_server_path %>
+</div>

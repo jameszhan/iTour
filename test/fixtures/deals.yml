@@ -3,13 +3,15 @@
 one:
   url: MyString
   intro: MyText
-  price: 
+  price: 9.99
+  image: MyString
   type: 
   provider: MyString
 
 two:
   url: MyString
   intro: MyText
-  price: 
+  price: 9.99
+  image: MyString
   type: 
   provider: MyString

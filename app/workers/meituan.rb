@@ -7,9 +7,9 @@ class Meituan < GroupSite
       deal = {
         url: page.url.to_s,
         intro: deal_intro.at("h1").text,
-        price: deal_intro.at(".deal-price > strong").text,
+        price: deal_intro.at(".deal-price > strong").text.gsub(/[^\d.]/, '').to_f,
         image: deal_intro.at(".deal-buy-cover-img > img")[:src],
-        type: @type,
+        catalog: @type,
         provider: self.class.name
       }
     end

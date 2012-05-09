@@ -13,3 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function(){
+	$("a[data-remote]").on('ajax:success', function(ext, data, eventName, xhr){
+		alert(data);
+	}).on('ajax:error', function(evt, xhr, eventName, statusText){
+		alert(statusText);
+	});
+});
+
