@@ -1,8 +1,7 @@
 
 class Crawler
   
-  @queue = :crawler_queue
-  
+  @queue = :crawler_queue  
   SITES = YAML.load_file("sites.yaml")["SITES"]
 
   def self.perform(sitename, type) 

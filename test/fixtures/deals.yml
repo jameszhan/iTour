@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyString
+  intro: MyText
+  price: 
+  type: 
+  provider: MyString
+
+two:
+  url: MyString
+  intro: MyText
+  price: 
+  type: 
+  provider: MyString

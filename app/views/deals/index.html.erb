@@ -1,0 +1,16 @@
+<% @deals.each do |deal| %>
+	<div class="deal">
+		<div class="intro"><%= deal.intro %></div>
+		<div class="image">
+			<a href="<%= deal.url %>">
+				<img src="<%= deal.image %>" width="300" height="200" />
+			</a>
+		</div>
+		<div class="price"><%= deal.price %></div>
+	</div>
+<% end %>
+
+<div class="footer">
+	<%= link_to 'New Deal', new_deal_path %>
+	<%= link_to 'View Task', resque_server_path %>
+</div>
